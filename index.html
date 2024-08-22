@@ -39,7 +39,7 @@
             color: #00ffff;  
             text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;  
         }  
-        button {  
+        .button-large {  
             background-color: #00ffff;  
             color: black;  
             border: none;  
@@ -51,7 +51,23 @@
             box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;  
             margin-top: 20px; /* Espacio encima del botón */  
         }  
-        button:hover {  
+        .button-large:hover {  
+            background-color: #009999;  
+            transform: scale(1.05);  
+        }  
+        .button-small {  
+            background-color: #00ffff;  
+            color: black;  
+            border: none;  
+            padding: 7.5px 12.5px; /* Mitad del tamaño del botón grande */  
+            cursor: pointer;  
+            border-radius: 5px;  
+            font-size: 1.2em;  
+            transition: background-color 0.3s, transform 0.3s;  
+            box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;  
+            margin-top: 20px; /* Espacio encima del botón */  
+        }  
+        .button-small:hover {  
             background-color: #009999;  
             transform: scale(1.05);  
         }  
@@ -70,6 +86,32 @@
         .music-list {  
             display: none; /* Ocultar la lista por defecto */  
             margin-top: 20px;  
+            text-align: left;  
+            list-style: none;  
+            padding: 0;  
+        }  
+        .music-list li {  
+            padding: 10px 0;  
+            border-bottom: 1px solid #444;  
+            transition: background-color 0.3s;  
+        }  
+        .music-list li a {  
+            color: #ffffff;  
+            text-decoration: none;  
+            font-size: 1.1em;  
+            display: flex;  
+            align-items: center;  
+        }  
+        .music-list li:hover {  
+            background-color: rgba(0, 255, 255, 0.1);  
+        }  
+        .music-list li:last-child {  
+            border-bottom: none;  
+        }  
+        .view-more {  
+            display: none; /* Ocultar por defecto */  
+            padding: 15px 0;  
+            text-align: center;  
         }  
         footer {  
             text-align: center;  
@@ -89,19 +131,24 @@
     <div class="content">  
         <h2>Sobre mi canal</h2>  
         <p>¡Hola! Soy Juan y en mi canal encontrarás música original, covers, y mucho más. Únete a nuestra comunidad y no te pierdas ninguna de nuestras novedades. ¡Suscríbete ahora!</p>  
-        <button onclick="redirectToYouTube()">Visita mi canal</button>  
+        <button class="button-large" onclick="redirectToYouTube()">Visita mi canal</button>  
         
         <h2>Descarga mi música</h2>  
-        <button onclick="toggleMusicList()">Ver lista de músicas</button>  
+        <button class="button-small" onclick="toggleMusicList()">Ver lista de músicas</button>  
         
         <div class="music-list" id="musicList">  
-            <ul>  
+            <ul id="musicListItems">  
                 <li><a href="link_a_tu_musica_1.mp3" download>Música 1</a></li>  
                 <li><a href="link_a_tu_musica_2.mp3" download>Música 2</a></li>  
                 <li><a href="link_a_tu_musica_3.mp3" download>Música 3</a></li>  
-                <!-- Agrega más músicas según sea necesario -->  
+                <!-- Elementos adicionales que estarán ocultos inicialmente -->  
+                <li class="view-more"><a href="link_a_tu_musica_4.mp3" download>Música 4</a></li>  
+                <li class="view-more"><a href="link_a_tu_musica_5.mp3" download>Música 5</a></li>  
+                <li class="view-more"><a href="link_a_tu_musica_6.mp3" download>Música 6</a></li>  
             </ul>  
         </div>  
+        
+        <button id="viewMoreButton" class="button-small" onclick="toggleViewMore()" style="display:none;">Ver más</button>  
         
         <div class="social-links">  
             <h2>Sígueme en redes sociales</h2>  
@@ -120,10 +167,29 @@
         
         function toggleMusicList() {  
             var musicList = document.getElementById("musicList");  
+            var viewMoreButton = document.getElementById("viewMoreButton");  
             if (musicList.style.display === "none") {  
                 musicList.style.display = "block"; // Mostrar la lista  
+                viewMoreButton.style.display = "inline-block"; // Mostrar el botón "Ver más"  
             } else {  
                 musicList.style.display = "none"; // Ocultar la lista  
+                viewMoreButton.style.display = "none"; // Ocultar el botón "Ver más"  
+            }  
+        }  
+        
+        function toggleViewMore() {  
+            var viewMoreItems = document.querySelectorAll(".view-more");  
+            var viewMoreButton = document.getElementById("viewMoreButton");  
+            if (viewMoreItems[0].style.display === "none") {  
+                viewMoreItems.forEach(function(item) {  
+                    item.style.display = "block";  
+                });  
+                viewMoreButton.innerText = "Ver menos";  
+            } else {  
+                viewMoreItems.forEach(function(item) {  
+                    item.style.display = "none";  
+                });  
+                viewMoreButton.innerText = "Ver más";  
             }  
         }  
     </script>  
