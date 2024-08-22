@@ -1,0 +1,131 @@
+<!DOCTYPE html>  
+<html lang="es">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>JuanPieceMusic - Canal de YouTube</title>  
+    <link rel="icon" href="https://yt3.googleusercontent.com/GuzqOq4hyuJiUW8gAhLF6tVYdXJavQR39yE0LcWt8fNLEiUDbQx2Z6BBE-dsPMK6QabAv9w0yg=s160-c-k-c0x00ffffff-no-rj" type="image/png">  
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
+    <style>  
+        body {  
+            font-family: 'Roboto', sans-serif;  
+            margin: 0;  
+            padding: 0;  
+            background: url('https://i.pinimg.com/originals/82/ab/0f/82ab0f43c59fbc8342ddf23073fde44b.gif') no-repeat center center fixed;  
+            background-size: cover;  
+            color: #ffffff;  
+        }  
+        header {  
+            background: rgba(0, 0, 0, 0.7);  
+            padding: 20px;  
+            text-align: center;  
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);  
+        }  
+        h1 {  
+            margin: 0;  
+            font-size: 2.5em;  
+            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;  
+        }  
+        .content {  
+            max-width: 900px;  
+            margin: 30px auto;  
+            background: rgba(0, 0, 0, 0.8);  
+            padding: 30px;  
+            border-radius: 10px;  
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);  
+            text-align: center; /* Centrar contenido */  
+        }  
+        h2 {  
+            color: #00ffff;  
+            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;  
+        }  
+        button {  
+            background-color: #00ffff;  
+            color: black;  
+            border: none;  
+            padding: 15px 25px;  
+            cursor: pointer;  
+            border-radius: 5px;  
+            font-size: 1.2em;  
+            transition: background-color 0.3s, transform 0.3s;  
+            box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;  
+            margin-top: 20px; /* Espacio encima del botón */  
+        }  
+        button:hover {  
+            background-color: #009999;  
+            transform: scale(1.05);  
+        }  
+        .social-links {  
+            margin-top: 20px;  
+            text-align: center;  
+        }  
+        .social-links img {  
+            width: 30px; /* Tamaño de los iconos ajustado */  
+            margin: 0 10px; /* Espaciado reducido */  
+            transition: transform 0.3s;  
+        }  
+        .social-links img:hover {  
+            transform: scale(1.1);  
+        }  
+        .music-list {  
+            display: none; /* Ocultar la lista por defecto */  
+            margin-top: 20px;  
+        }  
+        footer {  
+            text-align: center;  
+            margin-top: 30px;  
+            font-size: 0.9em;  
+            color: #fff;  
+            background: #000;  
+            padding: 15px 0;  
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);  
+        }  
+    </style>  
+</head>  
+<body>  
+    <header>  
+        <h1>Bienvenido a JuanPieceMusic</h1>  
+    </header>  
+    <div class="content">  
+        <h2>Sobre mi canal</h2>  
+        <p>¡Hola! Soy Juan y en mi canal encontrarás música original, covers, y mucho más. Únete a nuestra comunidad y no te pierdas ninguna de nuestras novedades. ¡Suscríbete ahora!</p>  
+        <button onclick="redirectToYouTube()">Visita mi canal</button>  
+        
+        <h2>Descarga mi música</h2>  
+        <button onclick="toggleMusicList()">Ver lista de músicas</button>  
+        
+        <div class="music-list" id="musicList">  
+            <ul>  
+                <li><a href="link_a_tu_musica_1.mp3" download>Música 1</a></li>  
+                <li><a href="link_a_tu_musica_2.mp3" download>Música 2</a></li>  
+                <li><a href="link_a_tu_musica_3.mp3" download>Música 3</a></li>  
+                <!-- Agrega más músicas según sea necesario -->  
+            </ul>  
+        </div>  
+        
+        <div class="social-links">  
+            <h2>Sígueme en redes sociales</h2>  
+            <a href="https://discord.com/invite/tu_enlace" target="_blank"><img src="https://www.svgrepo.com/show/353655/discord-icon.svg" alt="Discord"></a>  
+            <a href="https://www.facebook.com/tu_pagina" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>  
+            <a href="https://www.instagram.com/juanpiece19/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>  
+        </div>  
+    </div>  
+    <footer>  
+        <p>&copy; 2024 JuanPieceMusic. Todos los derechos reservados.</p>  
+    </footer>  
+    <script>  
+        function redirectToYouTube() {  
+            window.location.href = "https://www.youtube.com/@juanpiecemusic";  
+        }  
+        
+        function toggleMusicList() {  
+            var musicList = document.getElementById("musicList");  
+            if (musicList.style.display === "none") {  
+                musicList.style.display = "block"; // Mostrar la lista  
+            } else {  
+                musicList.style.display = "none"; // Ocultar la lista  
+            }  
+        }  
+    </script>  
+</body>  
+</html>
