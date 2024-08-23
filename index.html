@@ -40,19 +40,35 @@
             text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;  
         }  
         .button-large {  
-            background-color: #00ffff;  
-            color: black;  
+            background-color: #ff0000; /* Color rojo YouTube */  
+            color: white;  
             border: none;  
             padding: 15px 25px;  
             cursor: pointer;  
             border-radius: 5px;  
             font-size: 1.2em;  
             transition: background-color 0.3s, transform 0.3s;  
-            box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;  
+            box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;  
             margin-top: 20px; /* Espacio encima del botón */  
         }  
         .button-large:hover {  
-            background-color: #009999;  
+            background-color: #cc0000; /* Rojo más oscuro al pasar el ratón */  
+            transform: scale(1.05);  
+        }  
+        .button-blue {  
+            background-color: #007bff; /* Color azul */  
+            color: white;  
+            border: none;  
+            padding: 15px 25px;  
+            cursor: pointer;  
+            border-radius: 5px;  
+            font-size: 1.2em;  
+            transition: background-color 0.3s, transform 0.3s;  
+            box-shadow: 0 0 5px #007bff, 0 0 10px #007bff;  
+            margin-top: 20px; /* Espacio encima del botón */  
+        }  
+        .button-blue:hover {  
+            background-color: #0056b3; /* Azul más oscuro al pasar el ratón */  
             transform: scale(1.05);  
         }  
         .button-small {  
@@ -131,7 +147,11 @@
     <div class="content">  
         <h2>Sobre mi canal</h2>  
         <p>¡Hola! Soy Juan y en mi canal encontrarás música original, covers, y mucho más. Únete a nuestra comunidad y no te pierdas ninguna de nuestras novedades. ¡Suscríbete ahora!</p>  
+        
         <button class="button-large" onclick="redirectToYouTube()">Visita mi canal</button>  
+
+        <!-- Botón de visita al blog en azul -->
+        <button class="button-blue" onclick="window.location.href='blog.html'">Visita el Blog</button>
         
         <h2>Descarga mi música</h2>  
         <button class="button-small" onclick="toggleMusicList()">Ver lista de músicas</button>  
@@ -160,12 +180,6 @@
     <footer>  
         <p>&copy; 2024 JuanPieceMusic. Todos los derechos reservados.</p>  
     </footer>  
-
-    <!-- Música de fondo -->
-    <audio autoplay loop>
-        <source src="https://github.com/JuanPiece2025/mi-pagina/blob/2456cd84c9b6279310a4e3e757d0b133b1feea43/ambiente.mp3?raw=true" type="audio/mpeg">
-        Tu navegador no soporta la reproducción de audio.
-    </audio>
 
     <script>  
         function redirectToYouTube() {  
