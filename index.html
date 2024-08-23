@@ -160,6 +160,13 @@
     <footer>  
         <p>&copy; 2024 JuanPieceMusic. Todos los derechos reservados.</p>  
     </footer>  
+
+    <!-- Música de fondo -->
+    <audio autoplay loop>
+        <source src="https://github.com/JuanPiece2025/mi-pagina/blob/2456cd84c9b6279310a4e3e757d0b133b1feea43/ambiente.mp3?raw=true" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+
     <script>  
         function redirectToYouTube() {  
             window.location.href = "https://www.youtube.com/@juanpiecemusic";  
@@ -169,29 +176,25 @@
             var musicList = document.getElementById("musicList");  
             var viewMoreButton = document.getElementById("viewMoreButton");  
             if (musicList.style.display === "none") {  
-                musicList.style.display = "block"; // Mostrar la lista  
-                viewMoreButton.style.display = "inline-block"; // Mostrar el botón "Ver más"  
+                musicList.style.display = "block";  
+                viewMoreButton.style.display = "block";  
             } else {  
-                musicList.style.display = "none"; // Ocultar la lista  
-                viewMoreButton.style.display = "none"; // Ocultar el botón "Ver más"  
+                musicList.style.display = "none";  
+                viewMoreButton.style.display = "none";  
             }  
         }  
         
         function toggleViewMore() {  
-            var viewMoreItems = document.querySelectorAll(".view-more");  
-            var viewMoreButton = document.getElementById("viewMoreButton");  
-            if (viewMoreItems[0].style.display === "none") {  
-                viewMoreItems.forEach(function(item) {  
-                    item.style.display = "block";  
-                });  
-                viewMoreButton.innerText = "Ver menos";  
-            } else {  
-                viewMoreItems.forEach(function(item) {  
-                    item.style.display = "none";  
-                });  
-                viewMoreButton.innerText = "Ver más";  
+            var viewMoreItems = document.getElementsByClassName("view-more");  
+            for (var i = 0; i < viewMoreItems.length; i++) {  
+                if (viewMoreItems[i].style.display === "none") {  
+                    viewMoreItems[i].style.display = "block";  
+                } else {  
+                    viewMoreItems[i].style.display = "none";  
+                }  
             }  
         }  
     </script>  
 </body>  
 </html>
+
