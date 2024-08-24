@@ -3,7 +3,7 @@
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>JuanPieceMusic - Pagina Oficcial</title>  
+    <title>JuanPieceMusic - Pagina Oficial</title>  
     <link rel="icon" href="https://github.com/JuanPiece2025/mi-pagina/blob/main/favicom.png?raw=true" type="image/png">  
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
     <style>  
@@ -33,14 +33,14 @@
             padding: 30px;  
             border-radius: 10px;  
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);  
-            text-align: center; /* Centrar contenido */  
+            text-align: center;  
         }  
         h2 {  
             color: #00ffff;  
             text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;  
         }  
         .button-large {  
-            background-color: #ff0000; /* Color rojo YouTube */  
+            background-color: #ff0000;  
             color: white;  
             border: none;  
             padding: 15px 25px;  
@@ -49,14 +49,14 @@
             font-size: 1.2em;  
             transition: background-color 0.3s, transform 0.3s;  
             box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;  
-            margin-top: 20px; /* Espacio encima del botón */  
+            margin-top: 20px;  
         }  
         .button-large:hover {  
-            background-color: #cc0000; /* Rojo más oscuro al pasar el ratón */  
+            background-color: #cc0000;  
             transform: scale(1.05);  
         }  
         .button-blue {  
-            background-color: #007bff; /* Color azul */  
+            background-color: #007bff;  
             color: white;  
             border: none;  
             padding: 15px 25px;  
@@ -65,23 +65,23 @@
             font-size: 1.2em;  
             transition: background-color 0.3s, transform 0.3s;  
             box-shadow: 0 0 5px #007bff, 0 0 10px #007bff;  
-            margin-top: 20px; /* Espacio encima del botón */  
+            margin-top: 20px;  
         }  
         .button-blue:hover {  
-            background-color: #0056b3; /* Azul más oscuro al pasar el ratón */  
+            background-color: #0056b3;  
             transform: scale(1.05);  
         }  
         .button-small {  
             background-color: #00ffff;  
             color: black;  
             border: none;  
-            padding: 7.5px 12.5px; /* Mitad del tamaño del botón grande */  
+            padding: 7.5px 12.5px;  
             cursor: pointer;  
             border-radius: 5px;  
             font-size: 1.2em;  
             transition: background-color 0.3s, transform 0.3s;  
             box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;  
-            margin-top: 20px; /* Espacio encima del botón */  
+            margin-top: 20px;  
         }  
         .button-small:hover {  
             background-color: #009999;  
@@ -92,42 +92,12 @@
             text-align: center;  
         }  
         .social-links img {  
-            width: 30px; /* Tamaño de los iconos ajustado */  
-            margin: 0 10px; /* Espaciado reducido */  
+            width: 30px;  
+            margin: 0 10px;  
             transition: transform 0.3s;  
         }  
         .social-links img:hover {  
             transform: scale(1.1);  
-        }  
-        .music-list {  
-            display: none; /* Ocultar la lista por defecto */  
-            margin-top: 20px;  
-            text-align: left;  
-            list-style: none;  
-            padding: 0;  
-        }  
-        .music-list li {  
-            padding: 10px 0;  
-            border-bottom: 1px solid #444;  
-            transition: background-color 0.3s;  
-        }  
-        .music-list li a {  
-            color: #ffffff;  
-            text-decoration: none;  
-            font-size: 1.1em;  
-            display: flex;  
-            align-items: center;  
-        }  
-        .music-list li:hover {  
-            background-color: rgba(0, 255, 255, 0.1);  
-        }  
-        .music-list li:last-child {  
-            border-bottom: none;  
-        }  
-        .view-more {  
-            display: none; /* Ocultar por defecto */  
-            padding: 15px 0;  
-            text-align: center;  
         }  
         footer {  
             text-align: center;  
@@ -149,33 +119,10 @@
         <p>¡Hola! Soy Juan y en mi canal encontrarás música original, covers, y mucho más. Únete a nuestra comunidad y no te pierdas ninguna de nuestras novedades. ¡Suscríbete ahora!</p>  
         
         <button class="button-large" onclick="redirectToYouTube()">Visita mi canal</button>  
-
-        <!-- Botón de visita al blog en azul -->
         <button class="button-blue" onclick="window.location.href='blog.html'">Visita el Blog</button>
         
         <h2>Descarga mi música</h2>  
-        <button class="button-small" onclick="toggleMusicList()">Ver lista de músicas</button>  
-        
-        <div class="music-list" id="musicList">  
-            <ul id="musicListItems">  
-                <li><a href="https://www.mediafire.com/file/hynrgsjutkl8he8/Bonita_By_JuanPiece.mp3/file" download>Bonita By JuanPiece</a></li>  
-                <li><a href="https://www.mediafire.com/file/3oi5pew4t2xookh/Carta_de_amor_By_JuanPiece.mp3/file" download>Carta de amor By JuanPiece</a></li>  
-                <li><a href="https://www.mediafire.com/file/celt2sq6rr8dgxe/Cuando_hablas_By_JuanPiece.mp3/file" download>Cuando hablas By JuanPiece</a></li>
-                <li><a href="https://www.mediafire.com/file/cjphsf18km28nby/Cuarentena_By_JuanPiece.mp3/file" download>Cuarentena By JuanPiece</a></li>
-                <!-- Elementos adicionales que estarán ocultos inicialmente -->  
-                <li class="view-more"><a href="https://www.mediafire.com/file/xmm15ysde03x7ay/Intentalo_By_JuanPiece.mp3/file" download>Intentalo By JuanPiece</a></li>  
-                <li class="view-more"><a href="https://www.mediafire.com/file/jdfhezodqgt383e/Lo_unico_que_me_hace_feliz_By_JuanPiece.mp3/file" download>Lo unico que me hace feliz By JuanPiece</a></li>  
-                <li class="view-more"><a href="https://www.mediafire.com/file/63y8mj37ff1x0c5/Nadie_como_tu_By_JuanPiece_y_Abel.mp3/file" download>Nadie como tu By Juanpiece y Abel</a></li>
-                <li class="view-more"><a href="https://www.mediafire.com/file/vrjq34r8l99t52e/Perdoname_By_JuanPiece.mp3/file" download>Perdoname By JuanPiece</a></li>
-                <li class="view-more"><a href="https://www.mediafire.com/file/a9w6qyn82g318q8/Porque_me_enamora_By_JuanPiece.mp3/file" download>Porque me enamora By JuanPiece</a></li>
-                <li class="view-more"><a href="https://www.mediafire.com/file/mc7uwbjdcn36jox/Porque_Mientes_By_JuanPiece.mp3/file" download>Porque mientes By JuanPiece</a></li>
-                <li class="view-more"><a href="https://www.mediafire.com/file/uzf51bi409beziu/Te_necesito_By_JuanPiece.mp3/file" download>Te necesito By JuanPiece</a></li>
-                <li class="view-more"><a href="https://www.mediafire.com/file/5p6ui7mkb6l0ib4/Todavia_no_sabe_By_JuanPiece.mp3/file" download>Todavia no sabe By JuanPiece</a></li>
-                <li class="view-more"><a href="https://www.mediafire.com/file/x6zo6rmziicr3gb/Y_si_tu_no_estas_By_JuanPiece.mp3/file" download>Y si tu no estas By JuanPiece</a></li>
-            </ul>  
-        </div>  
-        
-        <button id="viewMoreButton" class="button-small" onclick="toggleViewMore()" style="display:none;">Ver más</button>  
+        <button class="button-small" onclick="window.location.href='descarga.html'">Ver lista de músicas</button>  
         
         <div class="social-links">  
             <h2>Sígueme en redes sociales</h2>  
@@ -191,29 +138,6 @@
     <script>  
         function redirectToYouTube() {  
             window.location.href = "https://www.youtube.com/@juanpiecemusic";  
-        }  
-        
-        function toggleMusicList() {  
-            var musicList = document.getElementById("musicList");  
-            var viewMoreButton = document.getElementById("viewMoreButton");  
-            if (musicList.style.display === "none") {  
-                musicList.style.display = "block";  
-                viewMoreButton.style.display = "block";  
-            } else {  
-                musicList.style.display = "none";  
-                viewMoreButton.style.display = "none";  
-            }  
-        }  
-        
-        function toggleViewMore() {  
-            var viewMoreItems = document.getElementsByClassName("view-more");  
-            for (var i = 0; i < viewMoreItems.length; i++) {  
-                if (viewMoreItems[i].style.display === "none") {  
-                    viewMoreItems[i].style.display = "block";  
-                } else {  
-                    viewMoreItems[i].style.display = "none";  
-                }  
-            }  
         }  
     </script>  
 </body>  
