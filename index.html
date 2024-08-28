@@ -6,14 +6,6 @@
     <title>JuanPieceMusic - Pagina Oficial</title>  
     <link rel="icon" href="https://github.com/JuanPiece2025/mi-pagina/blob/main/favicom.png?raw=true" type="image/png">  
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="JuanPieceMusic - Pagina Oficial" />
-    <meta property="og:description" content="¡Hola! Soy Juan y en mi canal encontrarás música original, covers, y mucho más. Únete a nuestra comunidad." />
-    <meta property="og:image" content="https://images.wondershare.com/filmora/article-images/2021/pixel-art-wallpaper-sunset.jpg" /> <!-- Reemplaza con la URL de tu imagen -->
-    <meta property="og:url" content="https://juanpiece.line.pm" /> <!-- Reemplaza con la URL de tu sitio -->
-    <meta property="og:type" content="website" />
-
     <style>  
         body {  
             font-family: 'Roboto', sans-serif;  
@@ -22,7 +14,19 @@
             background: url('fondo de pixel art ciudad.gif') no-repeat center center fixed;  
             background-size: cover;  
             color: #ffffff;  
+            overflow: hidden; /* Evitar scroll durante la carga */
         }  
+        .loader {
+            position: absolute;  
+            top: 50%;  
+            left: 50%;  
+            transform: translate(-50%, -50%);  
+            z-index: 9999; /* Asegurarse de que esté encima de todo */
+        }
+        .loader img {
+            width: 1024px; /* Ajusta el tamaño según sea necesario */
+            height: auto; /* Mantiene la proporción del GIF */
+        }
         header {  
             background: rgba(0, 0, 0, 0.7);  
             padding: 20px;  
@@ -42,6 +46,7 @@
             border-radius: 10px;  
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);  
             text-align: center;  
+            display: none; /* Ocultar contenido al inicio */  
         }  
         h2 {  
             color: #00ffff;  
@@ -135,6 +140,9 @@
     </style>  
 </head>  
 <body>  
+    <div class="loader">
+        <img src="carga.gif" alt="Cargando..." /> <!-- Reemplaza con la URL de tu GIF -->
+    </div>
     <header>  
         <h1>Bienvenido a JuanPieceMusic</h1>  
     </header>  
@@ -153,7 +161,7 @@
             <a href="https://www.facebook.com/profile.php?id=61557481343171" target="_blank"><img src="https://img.icons8.com/?size=100&id=uLWV5A9vXIPu&format=png&color=000000" alt="Facebook"></a>  
             <a href="https://www.instagram.com/juanpiece19/" target="_blank"><img src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000" alt="Instagram"></a>
             <a href="https://www.youtube.com/@juanpiecemusic" target="_blank"><img src="https://img.icons8.com/?size=100&id=19318&format=png&color=000000" alt="YouTube"></a>  
-            <a href="https://www.tiktok.com/@juanvivenes715" target="_blank"><img src="https://img.icons8.com/?size=100&id=118640&format=png&color=000000" alt="TikTok"></a> <!-- Agregado TikTok -->
+            <a href="https://www.tiktok.com/@tu_usuario" target="_blank"><img src="https://img.icons8.com/?size=100&id=118640&format=png&color=000000" alt="TikTok"></a>
         </div>  
         <button class="donation-button" onclick="window.location.href='donaciones.html'">Donaciones</button>  
     </div>  
@@ -162,12 +170,16 @@
     </footer>  
 
     <script>  
-        function redirectToYouTube() {  
-            window.location.href = "https://www.youtube.com/@juanpiecemusic";  
-        }  
+        window.onload = function() {  
+            document.querySelector('.loader').style.display = 'none'; // Ocultar el loader  
+            document.querySelector('.content').style.display = 'block'; // Mostrar el contenido  
+            document.body.style.overflow = 'auto'; // Permitir scroll  
+        };  
     </script>  
 </body>  
 </html>
+
+
 
 
 
