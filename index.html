@@ -14,19 +14,7 @@
             background: url('fondo de pixel art ciudad.gif') no-repeat center center fixed;  
             background-size: cover;  
             color: #ffffff;  
-            overflow: hidden; /* Evitar scroll durante la carga */
         }  
-        .loader {
-            position: absolute;  
-            top: 50%;  
-            left: 50%;  
-            transform: translate(-50%, -50%);  
-            z-index: 9999; /* Asegurarse de que esté encima de todo */
-        }
-        .loader img {
-            width: 1024px; /* Ajusta el tamaño según sea necesario */
-            height: auto; /* Mantiene la proporción del GIF */
-        }
         header {  
             background: rgba(0, 0, 0, 0.7);  
             padding: 20px;  
@@ -46,7 +34,6 @@
             border-radius: 10px;  
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);  
             text-align: center;  
-            display: none; /* Ocultar contenido al inicio */  
         }  
         h2 {  
             color: #00ffff;  
@@ -140,8 +127,6 @@
     </style>  
 </head>  
 <body>  
-    <div class="loader">
-    </div>
     <header>  
         <h1>Bienvenido a JuanPieceMusic</h1>  
     </header>  
@@ -167,14 +152,6 @@
     <footer>  
         <p>&copy; 2024 JuanPieceMusic. Todos los derechos reservados.</p>  
     </footer>  
-
-    <script>  
-        window.onload = function() {  
-            document.querySelector('.loader').style.display = 'none'; // Ocultar el loader  
-            document.querySelector('.content').style.display = 'block'; // Mostrar el contenido  
-            document.body.style.overflow = 'auto'; // Permitir scroll  
-        };  
-    </script>  
 </body>  
 </html>
 
