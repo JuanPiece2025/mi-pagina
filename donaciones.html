@@ -100,6 +100,35 @@
         .icon {  
             margin-right: 10px;  
         }  
+        /* Estilos del modal */
+        .modal {
+            display: none;  
+            position: fixed;  
+            z-index: 1000;  
+            left: 0;  
+            top: 0;  
+            width: 100%;  
+            height: 100%;  
+            overflow: auto;  
+            background-color: rgba(0, 0, 0, 0.8);  
+            justify-content: center;  
+            align-items: center;  
+        }  
+        .modal-content {  
+            margin: auto;  
+            display: block;  
+            max-width: 90%;  
+            max-height: 90%;  
+        }  
+        .close {  
+            position: absolute;  
+            top: 20px;  
+            right: 30px;  
+            color: #ffffff;  
+            font-size: 40px;  
+            font-weight: bold;  
+            cursor: pointer;  
+        }  
     </style>  
 </head>  
 <body>  
@@ -116,7 +145,7 @@
             Puedes realizar tu donación a través de Paypal utilizando el siguiente enlace:  
             <a href="https://www.paypal.com/ncp/payment/D8XU8E6WAQUME" target="_blank" style="color: #00ffff;">Enviar donación</a>.  
         </div>  
-
+ 
         <button class="button-list binance" onclick="toggleDescription('binance-description')">  
             <img src="https://cdn.icon-icons.com/icons2/3053/PNG/512/binance_macos_bigsur_icon_190342.png" alt="Binance" class="icon" width="30">  
             Binance  
@@ -125,13 +154,13 @@
             Si prefieres donar a través de Binance, puedes usar la siguiente dirección:  
             <code>no disponible aun...</code>.  
         </div>  
-
+ 
         <button class="button-list pago-movil" onclick="toggleDescription('pago-movil-description')">  
             <img src="https://cdn.icon-icons.com/icons2/3184/PNG/512/payment_mobile_icon_194100.png" alt="Pago Móvil" class="icon" width="30">  
             Pago Móvil Venezuela  
         </button>  
         <div id="pago-movil-description" class="description">  
-            <img src="pagomovil.png" alt="Instrucciones Pago Móvil" style="max-width: 50%; height: auto;">  
+            <img src="pagomovil.png" alt="Instrucciones Pago Móvil" style="max-width: 50%; height: auto; cursor: pointer;" onclick="openModal();">  
         </div> 
     </div> 
     <h2>Muchas gracias por tu apoyo</h2>
@@ -139,14 +168,29 @@
         <p>&copy; 2024 JuanPieceMusic. Todos los derechos reservados.</p>  
     </footer>  
 
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal();">&times;</span>
+        <img class="modal-content" id="img01" src="pagomovil.png" alt="Instrucciones Pago Móvil">
+    </div>
+
     <script>  
         function toggleDescription(id) {  
             const description = document.getElementById(id);  
             description.style.display = description.style.display === 'none' || description.style.display === '' ? 'block' : 'none';  
         }  
+
+        function openModal() {
+            document.getElementById("myModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
     </script>  
 </body>  
 </html>
+
 
 
 
