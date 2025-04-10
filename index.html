@@ -6,6 +6,7 @@
     <title>JuanPieceMusic - Pagina Oficial</title>
     <link rel="icon" href="https://github.com/JuanPiece2025/mi-pagina/blob/main/favicom.png?raw=true" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -20,6 +21,10 @@
             padding: 20px;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: relative; /* Para posicionar elementos dentro */
+            display: flex; /* Para alinear elementos del header */
+            justify-content: center; /* Centra el título por defecto */
+            align-items: center; /* Centra verticalmente los elementos del header */
         }
         h1 {
             margin: 0;
@@ -129,11 +134,139 @@
             transform: scale(1.05);
             box-shadow: 0 0 10px #008000, 0 0 20px #008000;
         }
+        .register-button-header {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex; /* Para alinear icono y el contenedor de opciones */
+            flex-direction: column; /* Apilar icono y opciones */
+            align-items: flex-end; /* Alinear a la derecha */
+        }
+        .account-icon-container {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px; /* Espacio entre el icono y las opciones */
+        }
+        .account-icon-container i {
+            font-size: 1.5em; /* Tamaño del icono */
+            color: #00ffff;
+            text-shadow: 0 0 3px #00ffff, 0 0 6px #00ffff;
+            -webkit-text-stroke: 1px black; /* Contorno para navegadores WebKit */
+            text-stroke: 1px black; /* Contorno estándar */
+            transition: transform 0.3s;
+        }
+        .account-icon-container:hover i {
+            transform: scale(1.1);
+        }
+        #authOptions {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            padding: 10px;
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 10; /* Asegura que esté por encima de otros elementos */
+            margin-top: 5px; /* Espacio del icono */
+        }
+        #authOptions button {
+            background-color: #00ffff;
+            color: black;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+            margin-bottom: 5px;
+            min-width: 120px; /* Ancho mínimo para los botones */
+            text-align: left;
+        }
+        #authOptions button:last-child {
+            margin-bottom: 10px; /* Espacio antes del texto de ayuda */
+        }
+        #authOptions button:hover {
+            background-color: #009999;
+        }
+        .help-text {
+            color: #00ffff;
+            font-size: 0.8em;
+            text-shadow: 0 0 2px #00ffff;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        /* Media query para pantallas más pequeñas (teléfonos) */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column; /* Apila el título y el icono */
+                align-items: center; /* Centra los elementos verticalmente */
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em; /* Reduce el tamaño del título en móviles */
+                margin-bottom: 10px; /* Espacio entre título e icono */
+            }
+            .register-button-header {
+                position: static; /* El icono fluye normalmente */
+                margin-top: 10px; /* Espacio desde el título */
+                text-align: center; /* Centra el icono */
+                flex-direction: column; /* Apila icono y opciones */
+                align-items: center;
+            }
+            .account-icon-container {
+                margin-bottom: 10px; /* Espacio entre icono y opciones */
+            }
+            #authOptions {
+                display: none; /* Ocultar por defecto en móviles también */
+                flex-direction: column; /* Apila los botones y el texto de ayuda */
+                align-items: center; /* Centra los elementos */
+                margin-top: 10px;
+                width: 100%; /* Ocupa todo el ancho */
+            }
+            #authOptions button {
+                margin: 5px 0; /* Espacio entre los botones */
+                font-size: 1em;
+                min-width: auto; /* Ajusta el ancho automáticamente */
+                text-align: center;
+            }
+            .help-text {
+                text-align: center; /* Centra el texto de ayuda en móviles */
+                margin-top: 10px;
+            }
+            .content {
+                padding: 20px; /* Reduce el padding del contenido en móviles */
+                margin: 20px auto; /* Reduce el margen del contenido en móviles */
+            }
+            .button-large, .button-small, .donation-button {
+                font-size: 1em; /* Reduce el tamaño de la fuente de los botones principales */
+                padding: 10px 20px; /* Reduce el padding de los botones principales */
+                margin-top: 15px; /* Reduce el margen superior de los botones principales */
+            }
+            .social-links img {
+                width: 25px; /* Reduce el tamaño de los iconos sociales */
+                margin: 0 5px; /* Reduce el margen de los iconos sociales */
+            }
+            footer {
+                padding: 10px 0; /* Reduce el padding del footer */
+                font-size: 0.9em; /* Reduce el tamaño de la fuente del footer */
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Bienvenido a JuanPieceMusic</h1>
+        <div class="register-button-header">
+            <div class="account-icon-container" onclick="toggleAuthOptions()">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div id="authOptions">
+                <button onclick="window.location.href='registro.html'">Registrarse</button>
+                <button onclick="window.location.href='login.html'">Iniciar Sesión</button>
+                <p class="help-text">¿Necesitas ayuda?</p>
+            </div>
+        </div>
     </header>
     <div class="content">
         <h2>Sobre mi canal</h2>
@@ -157,6 +290,22 @@
     <footer>
         <p>© 2024-2025 JuanPieceMusic. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        function toggleAuthOptions() {
+            const authOptions = document.getElementById('authOptions');
+            authOptions.style.display = authOptions.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        // Cerrar las opciones si se hace clic fuera
+        document.addEventListener('click', function(event) {
+            const authOptions = document.getElementById('authOptions');
+            const registerButtonHeader = document.querySelector('.register-button-header');
+            if (authOptions.style.display === 'flex' && !registerButtonHeader.contains(event.target) && !authOptions.contains(event.target)) {
+                authOptions.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
 
