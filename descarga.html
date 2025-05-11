@@ -1,186 +1,312 @@
-<!DOCTYPE html>  
-<html lang="es">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Descarga de Música - JuanPieceMusic</title>  
-    <link rel="icon" href="https://github.com/JuanPiece2025/mi-pagina/blob/main/favicom.png?raw=true" type="image/png">  
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
-    <style>  
-        body {  
-            font-family: 'Roboto', sans-serif;  
-            margin: 0;  
-            padding: 0;  
-            background: url('fondo de pixel art ciudad.gif') no-repeat center center fixed;  
-            background-size: cover;  
-            color: #ffffff;  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuchar Música - JuanPieceMusic</title>
+    <link rel="icon" href="https://github.com/JuanPiece2025/mi-pagina/blob/main/favicom.png?raw=true" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('fondo de pixel art ciudad.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
             overflow: hidden; /* Evitar scroll durante la carga */
-        }  
+        }
         .loader {
-            position: absolute;  
-            top: 50%;  
-            left: 50%;  
-            transform: translate(-50%, -50%);  
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 9999; /* Asegurarse de que esté encima de todo */
         }
         .loader img {
             width: 1024px; /* Ajusta el tamaño según sea necesario */
             height: auto; /* Mantiene la proporción del GIF */
         }
-        header {  
-            background: rgba(0, 0, 0, 0.7);  
-            padding: 20px;  
-            text-align: center;  
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);  
-            position: relative;  
-        }  
-        h1 {  
-            margin: 0;  
-            font-size: 2.5em;  
-            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;  
-        }  
-        .back-home {  
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+        }
+        .back-home {
             display: inline-block;
-            font-size: 0.8em;  
-            color: #ffffff;  
-            text-decoration: none;  
-            background: rgba(0, 255, 255, 0.7);  
-            border: 2px solid #00ffff;  
-            padding: 8px 12px;  
-            border-radius: 5px;  
-            transition: background 0.3s, color 0.3s;  
-            margin-top: 15px;  
-        }  
-        .back-home:hover {  
-            background: #00ffff;  
-            color: #000;  
-        }  
-        .content {  
-            max-width: 900px;  
-            margin: 30px auto;  
-            background: rgba(0, 0, 0, 0.8);  
-            padding: 30px;  
-            border-radius: 10px;  
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);  
-            text-align: center;  
-            display: none; /* Ocultar contenido al inicio */  
-        }  
-        h2 {  
-            color: #00ffff;  
-            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;  
-        }  
-        .genre {  
-            cursor: pointer;  
-            margin: 10px 0;  
-            padding: 10px;  
-            background-color: #007bff;  
-            color: white;  
-            border-radius: 5px;  
-            transition: background-color 0.3s;  
-        }  
-        .genre:hover {  
-            background-color: #0056b3;  
-        }  
-        .music-list {  
-            display: none;  
-            margin-top: 10px;  
-            text-align: left;  
-            list-style: disc;  
-            padding-left: 20px;  
-        }  
-        .music-list li {  
-            padding: 5px 0;  
-            border-bottom: 1px solid #444;  
-        }  
-        .music-list li a {  
-            color: #ffffff;  
-            text-decoration: none;  
-        }  
-        .music-list li:hover {  
-            background-color: rgba(0, 255, 255, 0.1);  
-        }  
-        footer {  
-            text-align: center;  
-            margin-top: 30px;  
-            font-size: 0.9em;  
-            color: #fff;  
-            background: #000;  
-            padding: 15px 0;  
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);  
-        }  
-    </style>  
-</head>  
-<body>  
-    <div class="loader"> 
+            font-size: 0.8em;
+            color: #ffffff;
+            text-decoration: none;
+            background: rgba(0, 255, 255, 0.7);
+            border: 2px solid #00ffff;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+            margin-top: 15px;
+        }
+        .back-home:hover {
+            background: #00ffff;
+            color: #000;
+        }
+        .content {
+            max-width: 900px;
+            margin: 30px auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            display: none; /* Ocultar contenido al inicio */
+        }
+        h2 {
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+        }
+        .genre {
+            cursor: pointer;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .genre:hover {
+            background-color: #0056b3;
+        }
+        .music-list {
+            display: none;
+            margin-top: 10px;
+            text-align: left;
+            list-style: disc;
+            padding-left: 20px;
+        }
+        .music-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #444;
+        }
+        .music-list li span {
+            color: #ffffff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .music-list li span:hover {
+            text-decoration: underline;
+        }
+        .audio-container {
+            background: rgba(255, 255, 255, 0.1); /* Fondo ligeramente transparente */
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px; /* Espacio entre el título y el reproductor */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            text-align: center; /* Centrar el reproductor y el título */
+            display: none; /* Ocultar inicialmente el contenedor del audio */
+        }
+        .audio-container audio {
+            width: 100%; /* O un ancho fijo si prefieres */
+            max-width: 400px; /* Para que no se vea demasiado grande en pantallas anchas */
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #fff;
+            background: #000;
+            padding: 15px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
     </div>
-    <header>  
-        <h1>Descarga de Música</h1>  
-        <a href="index.html" class="back-home">← Volver al Inicio</a>  
-    </header>  
-    <div class="content">  
-        <h2>Selecciona un Género</h2>  
+    <header>
+        <h1>Escuchar Música</h1>
+        <a href="index.html" class="back-home">← Volver al Inicio</a>
+    </header>
+    <div class="content">
+        <h2>Selecciona un Género</h2>
 
-        <div class="genre" onclick="toggleMusicList('reggaetonList')">Reggaetón</div>  
-        <ul class="music-list" id="reggaetonList">  
-            <li><a href="https://www.mediafire.com/file/hynrgsjutkl8he8/Bonita_By_JuanPiece.mp3/file" target="_blank">Bonita By JuanPiece</a></li>  
-            <li><a href="https://www.mediafire.com/file/5p6ui7mkb6l0ib4/Todavia_no_sabe_By_JuanPiece.mp3/file" target="_blank">Todavia no sabe By JuanPiece</a></li>  
-            <li><a href="https://www.mediafire.com/file/celt2sq6rr8dgxe/Cuando_hablas_By_JuanPiece.mp3/file" target="_blank">Cuando hablas By JuanPiece</a></li> 
-            <li><a href="https://www.mediafire.com/file/xmm15ysde03x7ay/Intentalo_By_JuanPiece.mp3/file" target="_blank">Intentalo By JuanPiece</a></li>
-            <li><a href="https://www.mediafire.com/file/63y8mj37ff1x0c5/Nadie_como_tu_By_JuanPiece_y_Abel.mp3/file" target="_blank">Nadie como tu By JuanPiece y Abel</a></li>
-            <li><a href="https://www.mediafire.com/file/vrjq34r8l99t52e/Perdoname_By_JuanPiece.mp3/file" target="_blank">Perdoname By JuanPiece</a></li>	
-            <li><a href="https://www.mediafire.com/file/a9w6qyn82g318q8/Porque_me_enamora_By_JuanPiece.mp3/file" target="_blank">Porque me enamora By JuanPiece</a></li>
-            <li><a href="https://www.mediafire.com/file/mc7uwbjdcn36jox/Porque_Mientes_By_JuanPiece.mp3/file" target="_blank">Porque mientes By JuanPiece</a></li>			
-        </ul>  
+        <div class="genre" onclick="toggleMusicList('reggaetonList')">Reggaetón</div>
+        <ul class="music-list" id="reggaetonList">
+            <li><span onclick="toggleAudio('reggaetonAudio1')">Bonita By JuanPiece</span>
+                <div class="audio-container" id="reggaetonAudio1">
+                    <audio controls>
+                        <source src="https://audio.jukehost.co.uk/dBepy7QyoYIT19UZSAfYAOTwchAKqXOb" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+            <li><span onclick="toggleAudio('reggaetonAudio2')">Todavia no sabe By JuanPiece</span>
+                <div class="audio-container" id="reggaetonAudio2">
+                    <audio controls>
+                        <source src="https://audio.jukehost.co.uk/DydQkLiIvI4JX8fuutmJ7vC1X3QlGfjq" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+            <li><span onclick="toggleAudio('reggaetonAudio3')">Cuando hablas By JuanPiece</span>
+                <div class="audio-container" id="reggaetonAudio3">
+                    <audio controls>
+                        <source src="https://audio.jukehost.co.uk/SMg8SyWlBdLc7dzRRHaKCQrLkOZ8y2jo" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+            <li><span onclick="toggleAudio('reggaetonAudio4')">Intentalo By JuanPiece</span>
+                <div class="audio-container" id="reggaetonAudio4">
+                    <audio controls>
+                        <source src="https://audio.jukehost.co.uk/V6J3kAnwjucIu4X4jEx32WH9yG78jl4a" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+            <li><span onclick="toggleAudio('reggaetonAudio5')">Nadie como tu By JuanPiece y Abel</span>
+                <div class="audio-container" id="reggaetonAudio5">
+                    <audio controls>
+                        <source src="https://audio.jukehost.co.uk/ydMmTuUc1BLW2P7mp3c0pu9m2LVdBA0R" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+            <li><span onclick="toggleAudio('reggaetonAudio6')">Perdoname By JuanPiece</span>
+                <div class="audio-container" id="reggaetonAudio6">
+                    <audio controls>
+                        <source src="https://audio.jukehost.co.uk/XGcGugvQQ0umpx0cvfdqpAf0Ox2HGvWx" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+            <li><span onclick="toggleAudio('reggaetonAudio7')">Porque me enamora By JuanPiece</span>
+                <div class="audio-container" id="reggaetonAudio7">
+                    <audio controls>
+                        <source src="https://audio.jukehost.co.uk/tNOpOdBxDq74bGlSENYjmOOh7mG89QY6" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+            <li><span onclick="toggleAudio('reggaetonAudio8')">Porque mientes By JuanPiece</span>
+                <div class="audio-container" id="reggaetonAudio8">
+                    <audio controls>
+                        <source src="https://audio.jukehost.co.uk/jVXYHtZ17JFDWJio3Ob0hqvA4zZL5IUU" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+        </ul>
 
-        <div class="genre" onclick="toggleMusicList('rapList')">Rap</div>  
-        <ul class="music-list" id="rapList">  
-            <li><a href="https://www.mediafire.com/file/uzf51bi409beziu/Te_necesito_By_JuanPiece.mp3/file" target="_blank">Te necesito By JuanPiece</a></li>  
-            <li><a href="https://www.mediafire.com/file/x6zo6rmziicr3gb/Y_si_tu_no_estas_By_JuanPiece.mp3/file" target="_blank">Y si tu no estas By JuanPiece</a></li>  
-            <li><a href="https://www.mediafire.com/file/3oi5pew4t2xookh/Carta_de_amor_By_JuanPiece.mp3/file" target="_blank">Carta de amor By JuanPiece</a></li> 			
-        </ul>  
+        <div class="genre" onclick="toggleMusicList('rapList')">Rap</div>
+        <ul class="music-list" id="rapList">
+            <li><span onclick="toggleAudio('rapAudio1')">Te necesito By JuanPiece</span>
+                <div class="audio-container" id="rapAudio1">
+                    <audio controls>
+                        <source src="https://audio.jukehost.co.uk/Wq7GoI70rvrvhh7KXOcqVUHKcWslLcLL" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+            <li><span onclick="toggleAudio('rapAudio2')">Y si tu no estas By JuanPiece</span>
+                <div class="audio-container" id="rapAudio2">
+                    <audio controls>
+                        <source src="https://audio.jukehost.co.uk/a9igwfQqfmzWRnAMd7UPJdnwZaUiVPod" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+            <li><span onclick="toggleAudio('rapAudio3')">Carta de amor By JuanPiece</span>
+                <div class="audio-container" id="rapAudio3">
+                    <audio controls>
+                        <source src="" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+        </ul>
 
-        <div class="genre" onclick="toggleMusicList('trapList')">Trap</div>  
-        <ul class="music-list" id="trapList">  
-            <li><a href="about:blank" target="_blank">Proximamente....</a></li>
-        </ul>  
+        <div class="genre" onclick="toggleMusicList('trapList')">Trap</div>
+        <ul class="music-list" id="trapList">
+            <li><span>Proximamente....</span>
+                <div>Próximamente</div>
+            </li>
+        </ul>
 
-        <div class="genre" onclick="toggleMusicList('popList')">Pop</div>  
-        <ul class="music-list" id="popList">  
-            <li><a href="https://www.mediafire.com/file/ohgrtc59j19dk18/Para_tenerte_de_nuevo_By_JuanPiece_%2526_Bionic.mp3/file" target="_blank">Para tenerte de nuevo By JuanPiece & Bionic</a></li>
-            <li><a href="https://www.mediafire.com/file/bwbisbp7iaz8dva/Ultima_vez_By_JuanPiece.mp3/file" target="_blank">Ultima vez By JuanPiece</a></li>  
-        </ul>  
+        <div class="genre" onclick="toggleMusicList('popList')">Pop</div>
+        <ul class="music-list" id="popList">
+            <li><span onclick="toggleAudio('popAudio1')">Para tenerte de nuevo By JuanPiece & Bionic</span>
+                <div class="audio-container" id="popAudio1">
+                    <audio controls>
+                        <source src="https://audio.jukehost.co.uk/i7XuWQLIaNYxnY2q3OtgnxcK1X2kbS5d" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+            <li><span onclick="toggleAudio('popAudio2')">Ultima vez By JuanPiece</span>
+                <div class="audio-container" id="popAudio2">
+                    <audio controls>
+                        <source src="https://audio.jukehost.co.uk/cPLqtQTDUQFkq6JNB0IB2zhvj355yLHz" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+        </ul>
 
-        <div class="genre" onclick="toggleMusicList('dembowList')">Dembow</div>  
-        <ul class="music-list" id="dembowList">  
-            <li><a href="https://www.mediafire.com/file/cjphsf18km28nby/Cuarentena_By_JuanPiece.mp3/file" target="_blank">Cuarentena By JuanPiece</a></li>  
-        </ul>  
+        <div class="genre" onclick="toggleMusicList('dembowList')">Dembow</div>
+        <ul class="music-list" id="dembowList">
+            <li><span onclick="toggleAudio('dembowAudio1')">Cuarentena By JuanPiece</span>
+                <div class="audio-container" id="dembowAudio1">
+                    <audio controls>
+                        <source src="https://audio.jukehost.co.uk/LJ7CBUhO0GgSoEvWxPQHPCodlNK2bSr5" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+        </ul>
 
-        <div class="genre" onclick="toggleMusicList('acusticoList')">Acústico</div>  
-        <ul class="music-list" id="acusticoList">  
-            <li><a href="https://www.mediafire.com/file/jdfhezodqgt383e/Lo_unico_que_me_hace_feliz_By_JuanPiece.mp3/file" target="_blank">Lo unico que me hace feliz By JuanPiece</a></li> 	
-        </ul>  
-    </div>  
-    <footer>  
-        © 2024 JuanPieceMusic. Todos los derechos reservados.  
-    </footer>  
+        <div class="genre" onclick="toggleMusicList('acusticoList')">Acústico</div>
+        <ul class="music-list" id="acusticoList">
+            <li><span onclick="toggleAudio('acusticoAudio1')">Lo unico que me hace feliz By JuanPiece</span>
+                <div class="audio-container" id="acusticoAudio1">
+                    <audio controls>
+                        <source src="https://audio.jukehost.co.uk/XIXElEMkdyVyO6PiSBLStZwjQfX43bZI" type="audio/mp3">
+                        Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <footer>
+        © 2024 JuanPieceMusic. Todos los derechos reservados.
+    </footer>
 
-    <script>  
-        function toggleMusicList(listId) {  
-            const list = document.getElementById(listId);  
-            const isVisible = list.style.display === "block";  
-            document.querySelectorAll('.music-list').forEach(function(ul) {  
-                ul.style.display = "none";  
-            });  
-            if (!isVisible) {  
-                list.style.display = "block";  
-            }  
-        }  
+    <script>
+        function toggleMusicList(listId) {
+            const list = document.getElementById(listId);
+            const isVisible = list.style.display === "block";
+            document.querySelectorAll('.music-list').forEach(function(ul) {
+                ul.style.display = "none";
+            });
+            if (!isVisible) {
+                list.style.display = "block";
+            }
+        }
 
-        window.onload = function() {  
-            document.querySelector('.loader').style.display = 'none'; // Ocultar el loader  
-            document.querySelector('.content').style.display = 'block'; // Mostrar el contenido  
-            document.body.style.overflow = 'auto'; // Permitir scroll  
-        };  
-    </script>  
-</body>  
+        function toggleAudio(audioId) {
+            const audioContainer = document.getElementById(audioId);
+            audioContainer.style.display = audioContainer.style.display === "block" ? "none" : "block";
+        }
+
+        window.onload = function() {
+            document.querySelector('.loader').style.display = 'none'; // Ocultar el loader
+            document.querySelector('.content').style.display = 'block'; // Mostrar el contenido
+            document.body.style.overflow = 'auto'; // Permitir scroll
+        };
+    </script>
+</body>
 </html>
