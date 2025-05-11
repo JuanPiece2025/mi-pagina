@@ -14,18 +14,18 @@
             background: url('fondo de pixel art ciudad.gif') no-repeat center center fixed;
             background-size: cover;
             color: #ffffff;
-            overflow: hidden; /* Evitar scroll durante la carga */
+            overflow: hidden;
         }
         .loader {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 9999; /* Asegurarse de que esté encima de todo */
+            z-index: 9999;
         }
         .loader img {
-            width: 1024px; /* Ajusta el tamaño según sea necesario */
-            height: auto; /* Mantiene la proporción del GIF */
+            width: 1024px;
+            height: auto;
         }
         header {
             background: rgba(0, 0, 0, 0.7);
@@ -63,7 +63,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             text-align: center;
-            display: none; /* Ocultar contenido al inicio */
+            display: none;
         }
         h2 {
             color: #00ffff;
@@ -101,17 +101,58 @@
             text-decoration: underline;
         }
         .audio-container {
-            background: rgba(255, 255, 255, 0.1); /* Fondo ligeramente transparente */
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 10px; /* Espacio entre el título y el reproductor */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            text-align: center; /* Centrar el reproductor y el título */
-            display: none; /* Ocultar inicialmente el contenedor del audio */
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+            box-shadow: 0 2px 10px rgba(0, 255, 255, 0.2);
+            text-align: center;
+            display: none;
+            border: 1px solid rgba(0, 255, 255, 0.1);
         }
         .audio-container audio {
-            width: 100%; /* O un ancho fijo si prefieres */
-            max-width: 400px; /* Para que no se vea demasiado grande en pantallas anchas */
+            width: 100%;
+            max-width: 400px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+        .audio-container audio::-webkit-media-controls {
+            background-color: transparent;
+        }
+        .audio-container audio::-webkit-media-controls-play-button,
+        .audio-container audio::-webkit-media-controls-pause-button,
+        .audio-container audio::-webkit-media-controls-current-time-display,
+        .audio-container audio::-webkit-media-controls-time-delimiter,
+        .audio-container audio::-webkit-media-controls-duration-display,
+        .audio-container audio::-webkit-media-controls-volume-panel {
+            color: #00ffff;
+        }
+        .audio-container audio::-webkit-media-controls-timeline {
+            background: rgba(0, 255, 255, 0.2);
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .audio-container audio::-webkit-media-controls-timeline-thumb {
+            background: #00ffff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #00ffff;
+            height: 12px;
+            width: 12px;
+            cursor: pointer;
+        }
+        .audio-container audio::-webkit-media-controls-volume-slider {
+            background: rgba(0, 255, 255, 0.2);
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .audio-container audio::-webkit-media-controls-volume-slider-thumb {
+            background: #00ffff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #00ffff;
+            height: 12px;
+            width: 12px;
+            cursor: pointer;
         }
         footer {
             text-align: center;
@@ -126,6 +167,8 @@
 </head>
 <body>
     <div class="loader">
+        <!-- Aquí puedes agregar una imagen de carga -->
+        <img src="ruta_de_tu_loader.gif" alt="Cargando...">
     </div>
     <header>
         <h1>Escuchar Música</h1>
@@ -232,7 +275,7 @@
 
         <div class="genre" onclick="toggleMusicList('trapList')">Trap</div>
         <ul class="music-list" id="trapList">
-            <li><span>Proximamente....</span>
+            <li><span>Próximamente....</span>
                 <div>Próximamente</div>
             </li>
         </ul>
@@ -271,7 +314,7 @@
 
         <div class="genre" onclick="toggleMusicList('acusticoList')">Acústico</div>
         <ul class="music-list" id="acusticoList">
-            <li><span onclick="toggleAudio('acusticoAudio1')">Lo unico que me hace feliz By JuanPiece</span>
+            <li><span onclick="toggleAudio('acusticoAudio1')">Lo único que me hace feliz By JuanPiece</span>
                 <div class="audio-container" id="acusticoAudio1">
                     <audio controls>
                         <source src="https://audio.jukehost.co.uk/XIXElEMkdyVyO6PiSBLStZwjQfX43bZI" type="audio/mp3">
@@ -282,7 +325,7 @@
         </ul>
     </div>
     <footer>
-        © 2024 JuanPieceMusic. Todos los derechos reservados.
+        © 2025 JuanPieceMusic. Todos los derechos reservados.
     </footer>
 
     <script>
@@ -302,11 +345,11 @@
             audioContainer.style.display = audioContainer.style.display === "block" ? "none" : "block";
         }
 
-        window.onload = function() {
-            document.querySelector('.loader').style.display = 'none'; // Ocultar el loader
-            document.querySelector('.content').style.display = 'block'; // Mostrar el contenido
-            document.body.style.overflow = 'auto'; // Permitir scroll
-        };
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.loader').style.display = 'none';
+            document.querySelector('.content').style.display = 'block';
+            document.body.style.overflow = 'auto';
+        });
     </script>
 </body>
 </html>
